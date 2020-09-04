@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../Dracula.dart';
-import './plot_screen.dart';
+// import './plot_screen.dart';
+// import './author.dart';
+// import './characters_screen.dart';
 
 class MenuScreen extends StatefulWidget {
   @override
@@ -26,16 +28,14 @@ class _MenuScreenState extends State<MenuScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double fullScreenHeight = MediaQuery.of(context).size.height;
+    // double fullScreenHeight = MediaQuery.of(context).size.height;
     Orientation orientation = MediaQuery.of(context).orientation;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: NetworkImage(
-              'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F3b%2F20%2Fd1%2F3b20d158e71118b50be3c253c4619a78.jpg&f=1&nofb=1',
-            ),
+            image: AssetImage('images/menuWallpaper.jpg'),
           ),
         ),
         // height: fullScreenHeight,
@@ -71,7 +71,12 @@ class _MenuScreenState extends State<MenuScreen> {
                           child: InkWell(
                               splashColor: Theme.of(context).primaryColor,
                               borderRadius: BorderRadius.circular(15),
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.of(context).pushNamed(
+                                  eachOption.route,
+                                  arguments: eachOption.info,
+                                );
+                              },
                               child: Container(
                                 width: MediaQuery.of(context).size.width / 2,
                                 alignment: Alignment.center,
